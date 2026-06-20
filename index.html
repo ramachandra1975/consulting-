@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rama Chandra Naredla — Business Setup &amp; Web Design Consulting</title>
+<meta name="description" content="Freelance consulting practice offering business &amp; office setup services and web design for startups and small-scale industries.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16213D;
+    --ink-soft:#2C3A55;
+    --slate:#5C6478;
+    --slate-light:#8891A0;
+    --paper:#FAF7F1;
+    --paper-deep:#F2ECDF;
+    --card:#FFFFFF;
+    --brass:#A8763C;
+    --brass-deep:#7C5526;
+    --brass-tint:#F1E4CB;
+    --line:#DDD5C2;
+    --line-soft:#EAE3D3;
+    --serif:'Fraunces', Georgia, serif;
+    --sans:'Inter', -apple-system, Segoe UI, sans-serif;
+    --mono:'IBM Plex Mono', SFMono-Regular, Consolas, monospace;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink-soft);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--brass-deep);}
+  img,svg{display:block; max-width:100%;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  :focus-visible{outline:2px solid var(--brass-deep); outline-offset:3px;}
+
+  /* ---------- NAV ---------- */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,247,241,0.92);
+    backdrop-filter:saturate(140%) blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 28px; max-width:var(--maxw); margin:0 auto;}
+  .brand{font-family:var(--serif); font-weight:600; font-size:18px; color:var(--ink); letter-spacing:0.2px; text-decoration:none;}
+  .brand span{color:var(--brass-deep);}
+  nav.links{display:flex; gap:28px; align-items:center;}
+  nav.links a{color:var(--ink-soft); text-decoration:none; font-size:14.5px; font-weight:500;}
+  nav.links a:hover{color:var(--brass-deep);}
+  .nav-cta{
+    background:var(--ink); color:#fff !important; padding:9px 18px; border-radius:3px;
+    font-size:14px; font-weight:600; letter-spacing:0.2px;
+  }
+  .nav-cta:hover{background:var(--brass-deep);}
+  .nav-toggle{display:none; background:none; border:1px solid var(--line); border-radius:4px; padding:8px 10px; cursor:pointer;}
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+    content:""; display:block; width:18px; height:2px; background:var(--ink); position:relative; transition:0.2s;
+  }
+  .nav-toggle span::before{position:absolute; top:-6px;}
+  .nav-toggle span::after{position:absolute; top:6px;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:76px 0 64px; position:relative; overflow:hidden;}
+  .hero-grid{display:grid; grid-template-columns:1.25fr 0.75fr; gap:48px; align-items:start;}
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:1.6px; color:var(--brass-deep);
+    text-transform:uppercase; margin:0 0 18px; font-weight:600;
+  }
+  h1.display{
+    font-family:var(--serif); font-weight:600; font-size:clamp(34px,4.6vw,54px);
+    line-height:1.08; color:var(--ink); margin:0 0 22px; letter-spacing:-0.5px;
+  }
+  .hero p.lede{font-size:18px; color:var(--slate); max-width:54ch; margin:0 0 30px; line-height:1.65;}
+  .cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:36px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:3px;
+    font-weight:600; font-size:15px; text-decoration:none; transition:0.15s ease; border:1px solid transparent;
+  }
+  .btn-primary{background:var(--brass-deep); color:#fff;}
+  .btn-primary:hover{background:#5e3f1c;}
+  .btn-ghost{border-color:var(--ink); color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink); color:#fff;}
+  .stat-row{display:flex; gap:0; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:22px;}
+  .stat{padding:0 26px 0 0; margin-right:26px; border-right:1px solid var(--line);}
+  .stat:last-child{border-right:none;}
+  .stat b{display:block; font-family:var(--serif); font-size:24px; color:var(--ink); font-weight:600;}
+  .stat span{font-size:12.5px; color:var(--slate-light); text-transform:uppercase; letter-spacing:0.6px;}
+
+  /* seal */
+  .seal-wrap{display:flex; justify-content:center; align-items:flex-start; padding-top:18px;}
+  .seal{width:230px; height:230px; animation:spin 38s linear infinite;}
+  @media (prefers-reduced-motion: reduce){ .seal{animation:none;} }
+  @keyframes spin{ to{ transform:rotate(360deg);} }
+  .seal-center{ animation:none; }
+
+  /* ---------- OVERVIEW PILLARS ---------- */
+  .pillars{padding:10px 0 70px;}
+  .pillar-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .pillar{
+    background:var(--card); border:1px solid var(--line); border-radius:6px; padding:26px 24px;
+    text-decoration:none; color:inherit; display:block; transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .pillar:hover{transform:translateY(-3px); box-shadow:0 10px 24px -16px rgba(22,33,61,0.35);}
+  .pillar .tag{font-family:var(--mono); font-size:11.5px; color:var(--brass-deep); letter-spacing:1px; font-weight:600;}
+  .pillar h3{font-family:var(--serif); font-size:21px; margin:10px 0 8px; color:var(--ink);}
+  .pillar p{font-size:14.5px; color:var(--slate); margin:0 0 14px;}
+  .pillar .more{font-size:13.5px; font-weight:600; color:var(--brass-deep);}
+
+  /* ---------- DOSSIER SECTIONS ---------- */
+  section.dossier{padding:64px 0;}
+  .dossier-head{
+    display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap;
+    border-bottom:2px solid var(--ink); padding-bottom:16px; margin-bottom:8px;
+  }
+  .dossier-tab{
+    font-family:var(--mono); font-size:13px; letter-spacing:1px; color:#fff; background:var(--ink);
+    padding:6px 12px; border-radius:3px 3px 0 0; display:inline-block; margin-bottom:10px; font-weight:600;
+  }
+  .dossier-head h2{font-family:var(--serif); font-size:clamp(26px,3vw,34px); color:var(--ink); margin:0; font-weight:600;}
+  .dossier-head .count{font-family:var(--mono); font-size:13px; color:var(--slate-light);}
+  .dossier-intro{color:var(--slate); max-width:74ch; margin:18px 0 8px; font-size:15.5px;}
+
+  .ledger{margin-top:6px;}
+  .ledger-row{
+    display:grid; grid-template-columns:108px 1fr; gap:22px;
+    padding:24px 0; border-top:1px solid var(--line);
+  }
+  .ledger-row:last-child{border-bottom:1px solid var(--line);}
+  .ledger-code{
+    font-family:var(--mono); font-size:13px; font-weight:600; color:var(--brass-deep);
+    padding-top:3px;
+  }
+  .ledger-body h4{font-family:var(--serif); font-size:19px; margin:0 0 8px; color:var(--ink); font-weight:600;}
+  .ledger-body p{margin:0 0 10px; color:var(--ink-soft); font-size:15px;}
+  .includes{font-size:13.5px; color:var(--slate); display:flex; flex-wrap:wrap; gap:7px; align-items:baseline;}
+  .includes b{color:var(--slate-light); font-weight:600; text-transform:uppercase; font-size:11px; letter-spacing:0.5px; margin-right:2px;}
+  .chip{
+    background:var(--paper-deep); border:1px solid var(--line); border-radius:20px; padding:3px 11px;
+    font-size:12.5px; color:var(--ink-soft);
+  }
+
+  .ref-note{
+    margin-top:26px; background:var(--brass-tint); border-left:4px solid var(--brass);
+    border-radius:0 4px 4px 0; padding:16px 20px; font-size:14.5px; color:#5b4423; font-style:italic;
+  }
+  .ref-note a{color:var(--brass-deep); font-weight:600; font-style:normal;}
+
+  /* ---------- PROCESS ---------- */
+  .process{padding:64px 0; background:var(--paper-deep); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .process-list{margin-top:34px; display:flex; flex-direction:column;}
+  .step{display:grid; grid-template-columns:64px 1fr; gap:20px; position:relative; padding-bottom:34px;}
+  .step:last-child{padding-bottom:0;}
+  .step-num{
+    font-family:var(--serif); font-size:22px; font-weight:600; color:var(--ink);
+    background:#fff; border:2px solid var(--ink); border-radius:50%; width:48px; height:48px;
+    display:flex; align-items:center; justify-content:center; z-index:1;
+  }
+  .step::before{
+    content:""; position:absolute; left:23px; top:48px; bottom:0; width:2px; background:var(--line);
+  }
+  .step:last-child::before{display:none;}
+  .step h4{font-family:var(--serif); font-size:19px; margin:6px 0 6px; color:var(--ink);}
+  .step p{margin:0; color:var(--slate); font-size:14.5px; max-width:62ch;}
+  .step .badge{
+    display:inline-block; font-family:var(--mono); font-size:11px; color:var(--brass-deep);
+    background:var(--brass-tint); padding:2px 8px; border-radius:3px; margin-bottom:4px; letter-spacing:0.4px;
+  }
+
+  /* ---------- PRICING ---------- */
+  .pricing{padding:64px 0;}
+  .quote-sheet{
+    background:#fff; border:1px solid var(--line); border-radius:6px; overflow:hidden;
+    box-shadow:0 18px 40px -28px rgba(22,33,61,0.4);
+  }
+  .quote-head{
+    display:flex; justify-content:space-between; align-items:center; padding:18px 24px;
+    background:var(--ink); color:#fff;
+  }
+  .quote-head span{font-family:var(--mono); font-size:12px; letter-spacing:1px; opacity:0.85;}
+  table.price{width:100%; border-collapse:collapse;}
+  table.price th{
+    text-align:left; font-size:12px; text-transform:uppercase; letter-spacing:0.6px; color:var(--slate-light);
+    padding:14px 24px; border-bottom:1px solid var(--line); font-weight:600;
+  }
+  table.price td{padding:16px 24px; border-bottom:1px solid var(--line-soft); font-size:14.5px; color:var(--ink-soft); vertical-align:top;}
+  table.price tr:last-child td{border-bottom:none;}
+  table.price td.amt{font-family:var(--mono); font-weight:600; color:var(--ink); white-space:nowrap;}
+  table.price td.basis{color:var(--slate); font-size:13.5px;}
+  .disclaimer-ribbon{
+    margin-top:22px; border:1px dashed var(--brass); border-radius:4px; padding:18px 22px;
+    font-size:13.5px; color:#5b4423; background:var(--brass-tint);
+  }
+  .disclaimer-ribbon b{color:#3d2c12;}
+
+  /* ---------- TEAM NOTE ---------- */
+  .team-note{padding:0 0 64px;}
+  .note-box{
+    border:1px solid var(--line); background:var(--card); border-radius:6px; padding:26px 28px;
+    display:grid; grid-template-columns:1fr 1fr; gap:28px;
+  }
+  .note-box h3{font-family:var(--serif); margin:0 0 8px; font-size:20px; color:var(--ink);}
+  .note-box p{margin:0; font-size:14.5px; color:var(--slate);}
+
+  /* ---------- CREDENTIALS ---------- */
+  .credentials{padding:64px 0; background:var(--paper-deep); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .career{margin-top:30px; display:flex; flex-direction:column;}
+  .career-row{
+    display:grid; grid-template-columns:140px 1fr 130px; gap:16px; padding:16px 0; border-top:1px solid var(--line);
+    align-items:baseline;
+  }
+  .career-row:last-child{border-bottom:1px solid var(--line);}
+  .career-row .period{font-family:var(--mono); font-size:13px; color:var(--brass-deep); font-weight:600;}
+  .career-row .role b{display:block; color:var(--ink); font-size:15px;}
+  .career-row .role span{font-size:13px; color:var(--slate);}
+  .career-row .domain{font-size:12.5px; color:var(--slate-light); text-align:right;}
+  .credentials .portfolio-line{margin-top:24px; font-size:14.5px; color:var(--slate);}
+
+  /* ---------- FOOTER CTA ---------- */
+  footer.cta{padding:74px 0 50px; text-align:center;}
+  footer.cta .eyebrow{justify-content:center; display:block; text-align:center;}
+  footer.cta h2{font-family:var(--serif); font-size:clamp(28px,4vw,42px); color:var(--ink); margin:14px 0 16px;}
+  footer.cta p{color:var(--slate); max-width:52ch; margin:0 auto 30px; font-size:16px;}
+  .phone-big{
+    font-family:var(--mono); font-size:clamp(28px,5vw,40px); color:var(--ink); font-weight:600;
+    letter-spacing:0.5px; text-decoration:none; display:inline-block; margin-bottom:8px;
+  }
+  .phone-big:hover{color:var(--brass-deep);}
+  .contact-links{display:flex; gap:22px; justify-content:center; flex-wrap:wrap; margin-top:18px; font-size:14.5px;}
+  .contact-links a{color:var(--slate); text-decoration:none; border-bottom:1px dotted var(--line);}
+  .contact-links a:hover{color:var(--brass-deep); border-color:var(--brass-deep);}
+  .legal{margin-top:46px; padding-top:22px; border-top:1px solid var(--line); font-size:12.5px; color:var(--slate-light);}
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity 0.6s ease, transform 0.6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:880px){
+    .hero-grid{grid-template-columns:1fr;}
+    .seal-wrap{order:-1; padding-top:0; margin-bottom:8px;}
+    .seal{width:140px; height:140px;}
+    .pillar-grid{grid-template-columns:1fr;}
+    .note-box{grid-template-columns:1fr;}
+    nav.links{
+      position:absolute; top:100%; left:0; right:0; background:var(--paper); flex-direction:column;
+      align-items:flex-start; padding:18px 28px; border-bottom:1px solid var(--line); gap:16px;
+      display:none;
+    }
+    nav.links.open{display:flex;}
+    .nav-toggle{display:block;}
+    .career-row{grid-template-columns:1fr; gap:4px;}
+    .career-row .domain{text-align:left;}
+  }
+  @media (max-width:560px){
+    .ledger-row{grid-template-columns:1fr; gap:6px;}
+    table.price th:nth-child(2), table.price td:nth-child(2){display:none;}
+    .stat-row{gap:0;}
+    .stat{padding-right:16px; margin-right:16px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a class="brand" href="#top">Rama Chandra Naredla <span>· Consulting</span></a>
+    <nav class="links" id="navLinks">
+      <a href="#services-a">Office Setup</a>
+      <a href="#services-b">Web Design</a>
+      <a href="#process">Process</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#credentials">Background</a>
+      <a class="nav-cta" href="tel:+919121379100">Call Now</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Freelance Consulting Practice — Hyderabad, India</p>
+        <h1 class="display">The office systems and the website your business hasn't built yet.</h1>
+        <p class="lede">Independent consulting for startups and small-scale industries — vendor management, accounts, procurement and audit basics on one side; design, content and maintenance for your website on the other. One point of contact, scaled to what you actually need.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="tel:+919121379100">Call +91 91213 79100</a>
+          <a class="btn btn-ghost" href="mailto:naradlaramachandra@yahoo.com">Email instead</a>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><b>15+ yrs</b><span>BPO, Finance &amp; Audit</span></div>
+          <div class="stat"><b>19</b><span>Services across 2 practices</span></div>
+          <div class="stat"><b>26</b><span>Subdomains built &amp; run solo</span></div>
+        </div>
+      </div>
+      <div class="seal-wrap" aria-hidden="true">
+        <svg class="seal" viewBox="0 0 220 220">
+          <circle cx="110" cy="110" r="100" fill="none" stroke="#A8763C" stroke-width="1.5"/>
+          <circle cx="110" cy="110" r="86" fill="none" stroke="#A8763C" stroke-width="1"/>
+          <defs><path id="circlePath" d="M 110,110 m -93,0 a 93,93 0 1,1 186,0 a 93,93 0 1,1 -186,0"/></defs>
+          <text font-family="IBM Plex Mono" font-size="10.2" letter-spacing="2.5" fill="#7C5526">
+            <textPath href="#circlePath" startOffset="2%">INDEPENDENT PRACTICE • OFFICE SYSTEMS • WEB DESIGN •</textPath>
+          </text>
+          <g class="seal-center">
+            <circle cx="110" cy="110" r="46" fill="none" stroke="#A8763C" stroke-width="1"/>
+            <text x="110" y="104" text-anchor="middle" font-family="Fraunces" font-size="15" fill="#16213D" font-weight="600">EST.</text>
+            <text x="110" y="126" text-anchor="middle" font-family="Fraunces" font-size="22" fill="#16213D" font-weight="600">2017</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLAR OVERVIEW -->
+  <section class="pillars">
+    <div class="wrap pillar-grid">
+      <a class="pillar reveal" href="#services-a">
+        <span class="tag">DOSSIER A · 10 SERVICES</span>
+        <h3>Business &amp; Office Setup</h3>
+        <p>Vendor management, procurement, accounts, petty cash, audits and HR-adjacent admin — the same systematized approach delivered for East Man Systems.</p>
+        <span class="more">See the full scope →</span>
+      </a>
+      <a class="pillar reveal" href="#services-b">
+        <span class="tag">DOSSIER B · 6 SERVICES</span>
+        <h3>Web Design &amp; Digital Presence</h3>
+        <p>Website design and build, content, maintenance and domain/hosting coordination — built on real experience running a 26-subdomain platform.</p>
+        <span class="more">See the full scope →</span>
+      </a>
+      <a class="pillar reveal" href="#services-c">
+        <span class="tag">DOSSIER C · 3 SERVICES</span>
+        <h3>Ongoing Advisory</h3>
+        <p>A monthly retainer option for businesses that want a continued point of contact rather than a single project.</p>
+        <span class="more">See the full scope →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- DOSSIER A -->
+  <section class="dossier" id="services-a">
+    <div class="wrap">
+      <div class="dossier-head">
+        <div>
+          <span class="dossier-tab">DOSSIER A</span>
+          <h2>Business &amp; Office Setup Consulting</h2>
+        </div>
+        <span class="count">10 activities</span>
+      </div>
+      <p class="dossier-intro">Establishing the operational and financial backbone a small business needs to run cleanly from day one — the same systematized approach delivered on a freelance basis for East Man Systems. Each activity below is a discrete piece of work that can be scoped on its own.</p>
+
+      <div class="ledger">
+        <div class="ledger-row reveal">
+          <div class="ledger-code">ADM-01</div>
+          <div class="ledger-body">
+            <h4>Office Administration Systems Setup</h4>
+            <p>Setting up the day-to-day administrative backbone of the office so routine work doesn't depend on memory or ad hoc decisions made on the fly.</p>
+            <div class="includes"><b>Includes</b>
+              <span class="chip">SOPs for routine tasks</span><span class="chip">Filing &amp; documentation systems</span><span class="chip">Approval hierarchies</span><span class="chip">Correspondence templates</span>
+            </div>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div class="ledger-code">VEN-01</div>
+          <div class="ledger-body">
+            <h4>Vendor Management</h4>
+            <p>Building a structured approach to selecting, onboarding and managing vendors so the business gets reliable service and fair, consistent pricing.</p>
+            <div class="includes"><b>Includes</b>
+              <span class="chip">Vendor sourcing &amp; evaluation</span><span class="chip">Onboarding documentation (KYC, agreements)</span><span class="chip">Vendor master list</span><span class="chip">Performance review</span>
+            </div>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div class="ledger-code">PRO-01</div>
+          <div class="ledger-body">
+            <h4>Procurement &amp; Purchase Order (RFQ) Systems</h4>
+            <p>Setting up a clean purchase-requisition-to-payment cycle so spending is tracked and properly authorized at every stage — the way it was structured for East Man Systems.</p>
+            <div class="includes"><b>Includes</b>
+              <span class="chip">RFQ process design</span><span class="chip">PO creation &amp; tracking</span><span class="chip">Multi-quote comparison</span><span class="chip">Spend-threshold approvals</span>
+            </div>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div class="ledger-code">ACC-01</div>
+          <div class="ledger-body">
+            <h4>Accounts &amp; Bookkeeping Support</h4>
+            <p>Hands-on support maintaining clean books, from ledgers to sub-ledgers, so the business always has an accurate, current financial picture.</p>
+            <div class="includes"><b>Includes</b>
+              <span class="chip">Ledger &amp; sub-ledger maintenance</span><span class="chip">Bill verification</span><span class="chip">Expense tracking</span><span class="chip">CA/accountant coordination</span>
+            </div>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div class="ledger-code">CSH-01</div>
+          <div class="ledger-body">
+            <h4>Petty Cash &amp; Day-to-Day Cash Control</h4>
+            <p>A disciplined, auditable system for handling small everyday cash expenses with proper authorization and recordkeeping.</p>
+            <div class="includes"><b>Includes</b>
+              <span class="chip">Petty cash vouchers</span><span class="chip">Daily/weekly reconciliation</span><span class="chip">Spending limits</span>
+            </div>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div class="ledger-code">BNK-01</div>
+          <div class="ledger-body">
+            <h4>Bank &amp; Financial Transaction Coordination</h4>
+            <p>Acting as the point person for routine banking activity so transactions are handled promptly, accurately, and with a clean paper trail.</p>
+            <div class="includes"><b>Includes</b>
+              <span class="chip">Payments &amp; transfers</span><span class="chip">Bank reconciliation</span><span class="chip">Bank liaison</span>
+            </div>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div class="ledger-code">REI-01</div>
+          <div class="ledger-body">
+            <h4>Employee &amp; Vendor Reimbursements</h4>
+            <p>Processing reimbursement claims fairly and on schedule, with documentation that holds up to scrutiny.</p>
+            <div class="includes"><b>Includes</b>
+              <span class="chip">Claim verification</span><span class="chip">Reimbursement tracking</span><span class="chip">Written policy</span>
+            </div>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div class="ledger-code">ITA-01</div>
+          <div class="ledger-body">
+            <h4>IT Asset Coordination</h4>
+            <p>Managing the lifecycle of office IT equipment through third-party vendors, from purchase through to repair and replacement.</p>
+            <div class="includes"><b>Includes</b>
+              <span class="chip">Hardware &amp; AMC coordination</span><span class="chip">Warranty &amp; inventory tracking</span><span class="chip">Repair liaison</span>
+            </div>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div class="ledger-code">AUD-01</div>
+          <div class="ledger-body">
+            <h4>Internal Audit &amp; Compliance Basics</h4>
+            <p>Lightweight, regular checks that catch errors and gaps before they become real problems — drawing directly on branch-level audit experience from SKS Micro Finance.</p>
+            <div class="includes"><b>Includes</b>
+              <span class="chip">Spot-checks of cash &amp; ledgers</span><span class="chip">Compliance checklists</span><span class="chip">Audit-readiness review</span>
+            </div>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div class="ledger-code">HRA-01</div>
+          <div class="ledger-body">
+            <h4>HR-Adjacent Admin Support</h4>
+            <p>Practical, non-statutory support around people-processes that often falls through the cracks in a small office without a dedicated HR function.</p>
+            <div class="includes"><b>Includes</b>
+              <span class="chip">Onboarding coordination</span><span class="chip">Background-verification liaison</span><span class="chip">First-line grievance handling</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOSSIER B -->
+  <section class="dossier" id="services-b">
+    <div class="wrap">
+      <div class="dossier-head">
+        <div>
+          <span class="dossier-tab">DOSSIER B</span>
+          <h2>Web Design &amp; Digital Presence Consulting</h2>
+        </div>
+        <span class="count">6 activities</span>
+      </div>
+      <p class="dossier-intro">End-to-end web design and digital infrastructure consulting for businesses that need a professional online presence but aren't yet ready to hire an in-house web team or agency.</p>
+
+      <div class="ledger">
+        <div class="ledger-row reveal">
+          <div class="ledger-code">WEB-01</div>
+          <div class="ledger-body">
+            <h4>Website Design &amp; Build</h4>
+            <p>Designing and building a clean, professional website that represents the business accurately — from a single landing page to a multi-section site.</p>
+            <div class="includes"><b>Includes</b>
+              <span class="chip">Structure &amp; navigation planning</span><span class="chip">Visual design</span><span class="chip">Responsive build</span><span class="chip">Contact &amp; lead-capture forms</span>
+            </div>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div class="ledger-code">ARC-01</div>
+          <div class="ledger-body">
+            <h4>Multi-Page / Multi-Domain Web Architecture</h4>
+            <p>Planning how content is organized across pages, sections, or even multiple linked sites or subdomains — useful for businesses with multiple product lines, departments, or service areas.</p>
+            <div class="includes"><b>Includes</b>
+              <span class="chip">Information architecture</span><span class="chip">Subdomain structuring</span><span class="chip">Cross-linking design</span>
+            </div>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div class="ledger-code">CNT-01</div>
+          <div class="ledger-body">
+            <h4>Content Structuring &amp; Copywriting Support</h4>
+            <p>Organizing and writing the actual words on the site — service descriptions, about pages, key messaging — so it reads clearly and credibly to a visitor.</p>
+            <div class="includes"><b>Includes</b>
+              <span class="chip">Service page copywriting</span><span class="chip">About/credentials structuring</span><span class="chip">Editing &amp; proofreading</span>
+            </div>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div class="ledger-code">INT-01</div>
+          <div class="ledger-body">
+            <h4>Interactive Features &amp; Tools</h4>
+            <p>Adding functional elements beyond static pages where they genuinely help the business, rather than as decoration.</p>
+            <div class="includes"><b>Includes</b>
+              <span class="chip">Inquiry forms</span><span class="chip">Embedded media</span><span class="chip">Catalogues &amp; reference tables</span>
+            </div>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div class="ledger-code">MNT-01</div>
+          <div class="ledger-body">
+            <h4>Website Maintenance &amp; Technical Support</h4>
+            <p>Ongoing care so the website keeps working and stays current — content updates, fixes and small improvements over time.</p>
+            <div class="includes"><b>Includes</b>
+              <span class="chip">Routine updates</span><span class="chip">Bug fixes</span><span class="chip">Broken-link review</span>
+            </div>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div class="ledger-code">DOM-01</div>
+          <div class="ledger-body">
+            <h4>Domain &amp; Hosting Coordination</h4>
+            <p>Managing the practical, often-confusing technical setup around domains and hosting on the client's behalf.</p>
+            <div class="includes"><b>Includes</b>
+              <span class="chip">Domain registration/renewal</span><span class="chip">Hosting setup</span><span class="chip">SSL/security basics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-note">
+        Reference: an independently designed and maintained 26-subdomain web platform with interactive tools and integrated video content — demonstrating sustained ability to plan, build and manage a non-trivial digital footprint. Portfolio at <a href="https://www.culturalmusings.com" target="_blank" rel="noopener">www.culturalmusings.com</a>.
+      </div>
+    </div>
+  </section>
+
+  <!-- DOSSIER C -->
+  <section class="dossier" id="services-c">
+    <div class="wrap">
+      <div class="dossier-head">
+        <div>
+          <span class="dossier-tab">DOSSIER C</span>
+          <h2>Ongoing Advisory &amp; Consulting Retainer</h2>
+        </div>
+        <span class="count">3 activities</span>
+      </div>
+      <p class="dossier-intro">For clients who want a continued point of contact rather than a one-time project, the following can be retained on a monthly basis.</p>
+      <div class="ledger">
+        <div class="ledger-row reveal">
+          <div class="ledger-code">ADV-01</div>
+          <div class="ledger-body">
+            <h4>Periodic Systems Review</h4>
+            <p>Scheduled check-ins to review office systems and the website together, flagging gaps before they cause problems.</p>
+            <div class="includes"><b>Includes</b><span class="chip">Monthly/quarterly review</span><span class="chip">Written findings summary</span></div>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div class="ledger-code">ADV-02</div>
+          <div class="ledger-body">
+            <h4>Vendor &amp; Procurement Advisory</h4>
+            <p>Ad hoc support on vendor negotiations, sourcing decisions, or procurement bottlenecks as they come up.</p>
+            <div class="includes"><b>Includes</b><span class="chip">On-call advisory</span><span class="chip">Vendor comparison</span><span class="chip">Negotiation input</span></div>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div class="ledger-code">ADV-03</div>
+          <div class="ledger-body">
+            <h4>General Point of Contact</h4>
+            <p>A single, known number to call for office-setup or web-related questions, without needing to hire full-time staff for either function.</p>
+            <div class="includes"><b>Includes</b><span class="chip">Direct phone/email access</span><span class="chip">Agreed response-time commitment</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="wrap">
+      <p class="eyebrow">How an engagement actually starts</p>
+      <h2 style="font-family:var(--serif); font-size:clamp(26px,3vw,34px); color:var(--ink); margin:6px 0 0;">Engagement Approach</h2>
+      <p class="dossier-intro" style="margin-top:14px;">A simple, low-friction process to get from informal operations to a documented, working system — and from no web presence to a credible one.</p>
+      <div class="process-list">
+        <div class="step reveal">
+          <div class="step-num">1</div>
+          <div><span class="badge">Discovery Call</span>
+            <h4>Understand the business</h4>
+            <p>A short call to understand current gaps and priorities. This is the call requested at the bottom of this page.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">2</div>
+          <div><span class="badge">Scoping</span>
+            <h4>Define exactly what's needed</h4>
+            <p>Jointly select which activities from Dossiers A, B and C are required, and at what depth.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">3</div>
+          <div><span class="badge">Formal Quotation</span>
+            <h4>Itemized quote, in your format</h4>
+            <p>A detailed quotation is shared in the client's preferred format once scope is finalized.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">4</div>
+          <div><span class="badge">Execution</span>
+            <h4>Work begins against milestones</h4>
+            <p>Agreed deliverables, with regular check-ins along the way.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">5</div>
+          <div><span class="badge">Handover &amp; Support</span>
+            <h4>Documentation handed over</h4>
+            <p>Option to continue on a retainer basis (Dossier C) for ongoing maintenance and advisory support.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="wrap">
+      <p class="eyebrow">For reference only</p>
+      <h2 style="font-family:var(--serif); font-size:clamp(26px,3vw,34px); color:var(--ink); margin:6px 0 16px;">Indicative Pricing</h2>
+      <p class="dossier-intro" style="margin-top:0;">Approximate figures so a prospective client can gauge likely investment levels. These are not final quotes — see disclaimer below.</p>
+
+      <div class="quote-sheet reveal">
+        <div class="quote-head">
+          <span>INDICATIVE QUOTATION SHEET</span>
+          <span>ALL FIGURES IN INR</span>
+        </div>
+        <table class="price">
+          <thead><tr><th>Service</th><th>Engagement Basis</th><th>Approximate Range</th></tr></thead>
+          <tbody>
+            <tr><td>Office / Business Operations Setup (one-time)</td><td class="basis">Fixed project fee</td><td class="amt">₹30,000 – ₹90,000</td></tr>
+            <tr><td>Ongoing Admin, Accounts &amp; Vendor Management</td><td class="basis">Monthly retainer, part-time</td><td class="amt">₹18,000 – ₹45,000/mo</td></tr>
+            <tr><td>Procurement, Audit &amp; Compliance Process Design</td><td class="basis">Fixed project fee</td><td class="amt">₹20,000 – ₹60,000</td></tr>
+            <tr><td>Website Design (informational / brochure)</td><td class="basis">Fixed project fee</td><td class="amt">₹15,000 – ₹40,000</td></tr>
+            <tr><td>Website Design (multi-page / portal)</td><td class="basis">Fixed project fee</td><td class="amt">₹40,000 – ₹1,20,000</td></tr>
+            <tr><td>Website Maintenance &amp; Technical Support</td><td class="basis">Monthly retainer</td><td class="amt">₹6,000 – ₹18,000/mo</td></tr>
+            <tr><td>General Consulting (ad-hoc advisory)</td><td class="basis">Hourly / daily</td><td class="amt">₹1,200 – ₹2,500/hr</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="disclaimer-ribbon">
+        <b>Disclaimer:</b> All figures above are indicative and for general reference only. Actual costs depend on final scope, duration, complexity, location and specific deliverables agreed upon. A detailed, itemized formal quotation will be shared separately, in the client's preferred format, only after requirements are discussed and the engagement is finalized. Figures exclude applicable taxes and are subject to change without prior notice until a formal agreement is signed.
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM NOTE -->
+  <section class="team-note">
+    <div class="wrap">
+      <div class="note-box reveal">
+        <div>
+          <h3>Team &amp; Resourcing</h3>
+          <p>This engagement can be resourced flexibly — from a single point of contact for smaller assignments, up to a coordinated team of <strong>5 to 10 people</strong> for larger or multi-track engagements, covering admin/accounts, procurement, and web/technical support in parallel.</p>
+        </div>
+        <div>
+          <h3>Note on Team Size</h3>
+          <p>The exact team composition and size (within the 5–10 range) will be assessed and confirmed only once the project scope is finalized and the engagement is formally agreed upon. This page does not commit to a fixed headcount in advance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section class="credentials" id="credentials">
+    <div class="wrap">
+      <p class="eyebrow">Background</p>
+      <h2 style="font-family:var(--serif); font-size:clamp(26px,3vw,34px); color:var(--ink); margin:6px 0 0;">15+ Years Across Operations, Finance &amp; Web</h2>
+      <p class="dossier-intro" style="margin-top:14px;">Rama Chandra Naredla is an independent consultant based in Hyderabad, Telangana — cross-domain experience in BPO operations, finance, internal audit, procurement and general office administration, plus independent web design and digital infrastructure work since 2017.</p>
+
+      <div class="career">
+        <div class="career-row reveal"><div class="period">2017–Present</div><div class="role"><b>Freelance Operations &amp; Web Consultant</b><span>Independent Practice — Office Setup, Web Design</span></div><div class="domain">Solo / scalable</div></div>
+        <div class="career-row reveal"><div class="period">2017–Present</div><div class="role"><b>Freelance Office Systems Consultant</b><span>East Man Systems — Admin, Accounts, Vendor Mgmt</span></div><div class="domain">Solo</div></div>
+        <div class="career-row reveal"><div class="period">2014–2017</div><div class="role"><b>Administration Officer</b><span>Snuvik Technologies Pvt. Ltd., Bengaluru</span></div><div class="domain">Team of 4</div></div>
+        <div class="career-row reveal"><div class="period">2010–2012</div><div class="role"><b>Asst. Manager – Internal Audit</b><span>SKS Micro Finance, Hyderabad</span></div><div class="domain">Team of 10</div></div>
+        <div class="career-row reveal"><div class="period">2008–2009</div><div class="role"><b>Senior Associate</b><span>Wipro BPO Solutions Ltd., Hyderabad — ITIL Support</span></div><div class="domain">Team-based</div></div>
+        <div class="career-row reveal"><div class="period">1997–2007</div><div class="role"><b>Sales, Procurement &amp; Bookkeeping Lead</b><span>Gayatri Engineering Co., Vijayanagaram</span></div><div class="domain">Team of 5</div></div>
+      </div>
+      <p class="portfolio-line">Full portfolio and web design reference: <a href="https://www.culturalmusings.com" target="_blank" rel="noopener">www.culturalmusings.com</a></p>
+    </div>
+  </section>
+
+  <!-- FOOTER / FINAL CTA -->
+  <footer class="cta" id="contact">
+    <div class="wrap">
+      <span class="eyebrow">Next step</span>
+      <h2>The fastest way to scope this is a short call.</h2>
+      <p>Please reach out directly — a call is the quickest way to understand your setup and propose the right combination of services.</p>
+      <a class="phone-big" href="tel:+919121379100">+91 91213 79100</a>
+      <div class="contact-links">
+        <a href="mailto:naradlaramachandra@yahoo.com">naradlaramachandra@yahoo.com</a>
+        <a href="https://www.culturalmusings.com" target="_blank" rel="noopener">www.culturalmusings.com</a>
+        <a href="https://www.linkedin.com/in/naredla-ramachandra-ab494130" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <p class="legal">This page is an informational proposal, not a binding contract. Team size and final pricing are confirmed in writing after the project deal is finalized. A separate, detailed quotation supersedes the indicative figures shown here. © Rama Chandra Naredla — Based in Hyderabad, Telangana, India.</p>
+    </div>
+  </footer>
+</main>
+
+<script>
+  // mobile nav toggle
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ links.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); });
+  });
+
+  // scroll reveal
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.reveal');
+  if(reduced || !('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  }
+</script>
+</body>
+</html>
